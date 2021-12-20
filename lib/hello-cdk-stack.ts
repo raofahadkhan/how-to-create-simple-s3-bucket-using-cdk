@@ -1,4 +1,5 @@
-import * as cdk from '@aws-cdk/core';
+import * as cdk from "@aws-cdk/core";
+import * as s3 from "@aws-cdk/aws-s3";
 // import * as sqs from '@aws-cdk/aws-sqs';
 
 export class HelloCdkStack extends cdk.Stack {
@@ -11,5 +12,9 @@ export class HelloCdkStack extends cdk.Stack {
     // const queue = new sqs.Queue(this, 'HelloCdkQueue', {
     //   visibilityTimeout: cdk.Duration.seconds(300)
     // });
+    new s3.Bucket(this, "fahad-bucket", {
+      versioned: true,
+      removalPolicy: cdk.RemovalPolicy.DESTROY,
+    });
   }
 }
